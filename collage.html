@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Photos Collage</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="lang-switch">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
+
+  <div class="container">
+    <h1 id="title-collage">Our Memories</h1>
+    <div class="photo-grid">
+      <!-- Загрузите свои картинки в папку images/ и поправьте пути ниже -->
+      <img src="images/photo1.jpg" alt="Photo 1" />
+      <img src="images/photo2.jpg" alt="Photo 2" />
+      <img src="images/photo3.jpg" alt="Photo 3" />
+      <img src="images/photo4.jpg" alt="Photo 4" />
+    </div>
+
+    <div class="nav-links">
+      <a href="letters.html">Letters</a>
+      <a href="thanks2.html">Final Page</a>
+    </div>
+  </div>
+
+  <!-- Сердечки -->
+  <div class="hearts">
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+  </div>
+
+  <script>
+    const currentPage = 'collage';
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>
