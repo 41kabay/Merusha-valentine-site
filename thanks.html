@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thank You</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="lang-switch">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
+
+  <div class="container">
+    <h1 id="title-thanks">Thank you!</h1>
+    <p id="subtitle-thanks">I'm so happy you said yes!</p>
+    <button id="next-btn">Next</button>
+  </div>
+
+  <script>
+    // Текущая страница
+    const currentPage = 'thanks';
+  </script>
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage(selectedLanguage);
+
+      document.getElementById('next-btn').addEventListener('click', () => {
+        window.location.href = 'thanks2.html';
+      });
+    });
+  </script>
+</body>
+</html>
