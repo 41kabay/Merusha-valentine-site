@@ -6,21 +6,38 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- Переключатель языка -->
   <div class="lang-switch">
     <button onclick="setLanguage('en')">EN</button>
     <button onclick="setLanguage('ru')">RU</button>
   </div>
 
+  <!-- Основной контейнер -->
   <div class="container">
+    <!-- Заголовки с идентификаторами для перевода -->
     <h1 id="title-thanks2">Thank you for being my girlfriend!</h1>
     <p id="subtitle-thanks2">I cherish every moment with you!</p>
 
-    <!-- Кнопка включения/выключения музыки -->
+    <!-- Кнопка Play/Pause музыки -->
     <button id="music-btn">Play Music</button>
-    <!-- Скрытый аудиоплеер -->
+
+    <!-- Блок для ползунка громкости -->
+    <div class="volume-control">
+      <label for="volume-slider">Volume:</label>
+      <input
+        type="range"
+        id="volume-slider"
+        min="0"
+        max="1"
+        step="0.01"
+        value="1"
+      />
+    </div>
+
+    <!-- Сам звуковой файл (автоплей не включаем, чтобы не блокировалось) -->
     <audio id="romantic-audio" src="music/romantic.mp3"></audio>
 
-    <!-- Дополнительные ссылки -->
+    <!-- Ссылки на другие страницы -->
     <div class="nav-links">
       <a href="collage.html">Collage</a>
       <a href="letters.html">Letters</a>
@@ -28,7 +45,7 @@
     </div>
   </div>
 
-  <!-- Сердечки -->
+  <!-- Сердечки на фоне -->
   <div class="hearts">
     <div class="heart"></div>
     <div class="heart"></div>
@@ -38,18 +55,25 @@
     <div class="heart"></div>
   </div>
 
+  <!-- Указываем, какая страница (для скрипта перевода) -->
   <script>
     const currentPage = 'thanks2';
   </script>
+
+  <!-- Подключаем ваш общий скрипт (script.js) -->
   <script src="js/script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Ставим выбранный язык (из script.js)
       setLanguage(selectedLanguage);
 
       const musicBtn = document.getElementById('music-btn');
       const audio = document.getElementById('romantic-audio');
+      const volumeSlider = document.getElementById('volume-slider');
+
       let isPlaying = false;
 
+      // Обработка нажатия "Play Music" / "Pause Music"
       musicBtn.addEventListener('click', () => {
         if (!isPlaying) {
           audio.play();
@@ -60,6 +84,11 @@
           isPlaying = false;
           musicBtn.textContent = "Play Music";
         }
+      });
+
+      // Ползунок громкости
+      volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value;
       });
     });
   </script>
