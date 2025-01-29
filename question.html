@@ -17,19 +17,32 @@
       <button id="yes-btn">Yes</button>
       <button id="no-btn">No</button>
     </div>
+
+    <!-- Дополнительные ссылки (пример) -->
+    <div class="nav-links">
+      <a href="collage.html">See our Collage</a>
+      <a href="letters.html">Read my Letters</a>
+    </div>
+  </div>
+
+  <!-- Сердечки -->
+  <div class="hearts">
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
   </div>
 
   <script>
-    // Текущая страница
     const currentPage = 'question';
   </script>
   <script src="js/script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Устанавливаем язык (берётся из script.js, где есть переменная selectedLanguage)
       setLanguage(selectedLanguage);
 
-      // Логика кнопок
       const yesBtn = document.getElementById('yes-btn');
       const noBtn = document.getElementById('no-btn');
 
@@ -38,8 +51,7 @@
       });
 
       noBtn.addEventListener('click', () => {
-        // Можно сделать отдельную страницу на "No"
-        // но пока ведём туда же, на thanks.html
+        // Если «No», тоже ведём на thanks.html
         window.location.href = 'thanks.html';
       });
     });
