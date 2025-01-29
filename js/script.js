@@ -52,7 +52,7 @@ function setLanguage(lang) {
         no: "No"
       },
       ru: {
-        title: "Станешь моей Валентинкой?",
+        title: "Ты будешь моей Валентинкой?",
         yes: "Да",
         no: "Нет"
       }
@@ -65,7 +65,7 @@ function setLanguage(lang) {
       },
       ru: {
         title: "Спасибо!",
-        subtitle: "Я так рад(а), что ты согласилась!",
+        subtitle: "Я очень рад, что ты согласилась!",
         next: "Дальше"
       }
     },
@@ -75,7 +75,7 @@ function setLanguage(lang) {
         subtitle: "I cherish every moment with you!"
       },
       ru: {
-        title: "Спасибо, что стала моей девушкой!",
+        title: "Спасибо тебе за то, что ты моя девушка!",
         subtitle: "Я дорожу каждым мгновением с тобой!"
       }
     },
@@ -90,8 +90,8 @@ function setLanguage(lang) {
     letters: {
       en: {
         title: "My Letters to You",
-        subtitle1: "When I first saw you",
-        text1: "This is a special letter about the moment we first met...",
+        subtitle1: "Thank you letter",
+        text1: "Thank you for being in my life.",
         subtitle2: "When I miss you",
         text2: "Another letter sharing my feelings when we're apart...",
         subtitle3: "Our Future",
@@ -99,8 +99,8 @@ function setLanguage(lang) {
       },
       ru: {
         title: "Мои письма для тебя",
-        subtitle1: "Когда я впервые тебя увидел(а)",
-        text1: "Это особое письмо о том моменте, когда мы впервые встретились...",
+        subtitle1: "Письмо благодарности",
+        text1: "Спасибо за то, что ты есть в моей жизни...",
         subtitle2: "Когда я скучаю по тебе",
         text2: "Другое письмо, в котором делюсь чувствами, когда мы в разлуке...",
         subtitle3: "Наше будущее",
