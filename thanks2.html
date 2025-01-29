@@ -14,21 +14,26 @@
 
   <!-- Основной контейнер -->
   <div class="container">
-    <!-- Заголовки с идентификаторами для перевода -->
     <h1 id="title-thanks2">Thank you for being my girlfriend!</h1>
     <p id="subtitle-thanks2">I cherish every moment with you!</p>
 
     <!-- Кнопка Play/Pause музыки -->
     <button id="music-btn">Play Music</button>
 
-<div class="progress-control">
-   <span id="current-time">0:00</span>
-   <input type="range" id="progress-slider" min="0" value="0" step="1" />
-   <span id="duration-time">0:00</span>
-</div>
+    <!-- Ползунок для перемотки -->
+    <div class="progress-control">
+      <span id="current-time">0:00</span>
+      <input
+        type="range"
+        id="progress-slider"
+        min="0"
+        value="0"
+        step="1"
+      />
+      <span id="duration-time">0:00</span>
+    </div>
 
-    
-    <!-- Блок для ползунка громкости -->
+    <!-- Ползунок громкости -->
     <div class="volume-control">
       <label for="volume-slider">Volume:</label>
       <input
@@ -41,7 +46,7 @@
       />
     </div>
 
-    <!-- Сам звуковой файл (автоплей не включаем, чтобы не блокировалось) -->
+    <!-- Сам звуковой файл -->
     <audio id="romantic-audio" src="music/romantic.mp3"></audio>
 
     <!-- Ссылки на другие страницы -->
@@ -62,25 +67,27 @@
     <div class="heart"></div>
   </div>
 
-  <!-- Указываем, какая страница (для скрипта перевода) -->
+  <!-- Указываем, какая страница (для перевода) -->
   <script>
     const currentPage = 'thanks2';
   </script>
 
-  <!-- Подключаем ваш общий скрипт (script.js) -->
+  <!-- Подключаем скрипт -->
   <script src="js/script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Ставим выбранный язык (из script.js)
       setLanguage(selectedLanguage);
 
       const musicBtn = document.getElementById('music-btn');
       const audio = document.getElementById('romantic-audio');
       const volumeSlider = document.getElementById('volume-slider');
+      const progressSlider = document.getElementById('progress-slider');
+      const currentTimeDisplay = document.getElementById('current-time');
+      const durationTimeDisplay = document.getElementById('duration-time');
 
       let isPlaying = false;
 
-      // Обработка нажатия "Play Music" / "Pause Music"
+      // Кнопка Play/Pause
       musicBtn.addEventListener('click', () => {
         if (!isPlaying) {
           audio.play();
@@ -97,6 +104,30 @@
       volumeSlider.addEventListener('input', () => {
         audio.volume = volumeSlider.value;
       });
+
+      // Когда аудио загружено, устанавливаем максимальное значение для прогресс-бара
+      audio.addEventListener('loadedmetadata', () => {
+        progressSlider.max = Math.floor(audio.duration);
+        durationTimeDisplay.textContent = formatTime(audio.duration);
+      });
+
+      // Обновляем прогресс-бара во время проигрывания
+      audio.addEventListener('timeupdate', () => {
+        progressSlider.value = Math.floor(audio.currentTime);
+        currentTimeDisplay.textContent = formatTime(audio.currentTime);
+      });
+
+      // При перемотке обновляем текущую позицию аудио
+      progressSlider.addEventListener('input', () => {
+        audio.currentTime = progressSlider.value;
+      });
+
+      // Функция форматирования времени (секунды -> MM:SS)
+      function formatTime(seconds) {
+        const min = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60);
+        return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+      }
     });
   </script>
 </body>
