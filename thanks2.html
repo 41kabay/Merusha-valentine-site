@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Final Page</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="lang-switch">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
+
+  <div class="container">
+    <h1 id="title-thanks2">Thank you for being my girlfriend!</h1>
+    <p id="subtitle-thanks2">I cherish every moment with you!</p>
+  </div>
+
+  <script>
+    // Текущая страница
+    const currentPage = 'thanks2';
+  </script>
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage(selectedLanguage);
+    });
+  </script>
+</body>
+</html>
