@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Final Page</title>
+  <title>Valentine Question</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -14,36 +14,28 @@
 
   <!-- Основной контейнер -->
   <div class="container">
-    <h1 id="title-thanks2">Thank you for being my girlfriend!</h1>
-    <p id="subtitle-thanks2">I cherish every moment with you!</p>
+    <!-- Вопрос про валентинку -->
+    <h1 id="title-question">Will you be my valentine?</h1>
+    <div class="buttons">
+      <button id="yes-btn">Yes</button>
+      <button id="no-btn">No</button>
+    </div>
 
-    <!-- Кнопка Play/Pause музыки -->
+    <!-- Музыка под вопросами -->
+    <h2 id="music-title">And listen to this while thinking about it...</h2>
     <button id="music-btn">Play Music</button>
 
     <!-- Ползунок для перемотки -->
     <div class="progress-control">
       <span id="current-time">0:00</span>
-      <input
-        type="range"
-        id="progress-slider"
-        min="0"
-        value="0"
-        step="1"
-      />
+      <input type="range" id="progress-slider" min="0" value="0" step="1" />
       <span id="duration-time">0:00</span>
     </div>
 
     <!-- Ползунок громкости -->
     <div class="volume-control">
       <label for="volume-slider">Volume:</label>
-      <input
-        type="range"
-        id="volume-slider"
-        min="0"
-        max="1"
-        step="0.01"
-        value="1"
-      />
+      <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" />
     </div>
 
     <!-- Сам звуковой файл -->
@@ -51,13 +43,6 @@
       <source src="music/romantic.mp3" type="audio/mp3">
       Your browser does not support the audio element.
     </audio>
-
-    <!-- Ссылки на другие страницы -->
-    <div class="nav-links">
-      <a href="collage.html">Collage</a>
-      <a href="letters.html">Letters</a>
-      <a href="index.html">Go to Start</a>
-    </div>
   </div>
 
   <!-- Сердечки на фоне -->
@@ -70,17 +55,17 @@
     <div class="heart"></div>
   </div>
 
-  <!-- Указываем, какая страница (для перевода) -->
+  <!-- Подключаем JS -->
   <script>
-    const currentPage = 'thanks2';
+    const currentPage = 'question';
   </script>
-
-  <!-- Подключаем скрипт -->
   <script src="js/script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage(selectedLanguage);
 
+      const yesBtn = document.getElementById('yes-btn');
+      const noBtn = document.getElementById('no-btn');
       const musicBtn = document.getElementById('music-btn');
       const audio = document.getElementById('romantic-audio');
       const volumeSlider = document.getElementById('volume-slider');
@@ -90,7 +75,17 @@
 
       let isPlaying = false;
 
-      // Кнопка Play/Pause
+      // Кнопка "Yes" ведёт на "thanks.html"
+      yesBtn.addEventListener('click', () => {
+        window.location.href = 'thanks.html';
+      });
+
+      // Кнопка "No" тоже ведёт на "thanks.html" (можно поменять)
+      noBtn.addEventListener('click', () => {
+        window.location.href = 'thanks.html';
+      });
+
+      // Кнопка Play/Pause музыки
       musicBtn.addEventListener('click', () => {
         if (!isPlaying) {
           audio.play();
