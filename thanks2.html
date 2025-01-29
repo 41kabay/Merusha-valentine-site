@@ -14,16 +14,53 @@
   <div class="container">
     <h1 id="title-thanks2">Thank you for being my girlfriend!</h1>
     <p id="subtitle-thanks2">I cherish every moment with you!</p>
+
+    <!-- Кнопка включения/выключения музыки -->
+    <button id="music-btn">Play Music</button>
+    <!-- Скрытый аудиоплеер -->
+    <audio id="romantic-audio" src="music/romantic.mp3"></audio>
+
+    <!-- Дополнительные ссылки -->
+    <div class="nav-links">
+      <a href="collage.html">Collage</a>
+      <a href="letters.html">Letters</a>
+      <a href="index.html">Go to Start</a>
+    </div>
+  </div>
+
+  <!-- Сердечки -->
+  <div class="hearts">
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
   </div>
 
   <script>
-    // Текущая страница
     const currentPage = 'thanks2';
   </script>
   <script src="js/script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage(selectedLanguage);
+
+      const musicBtn = document.getElementById('music-btn');
+      const audio = document.getElementById('romantic-audio');
+      let isPlaying = false;
+
+      musicBtn.addEventListener('click', () => {
+        if (!isPlaying) {
+          audio.play();
+          isPlaying = true;
+          musicBtn.textContent = "Pause Music";
+        } else {
+          audio.pause();
+          isPlaying = false;
+          musicBtn.textContent = "Play Music";
+        }
+      });
     });
   </script>
 </body>
