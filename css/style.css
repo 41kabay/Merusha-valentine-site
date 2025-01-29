@@ -1,3 +1,4 @@
+/* СБРОС */
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +6,7 @@
   font-family: 'Arial', sans-serif;
 }
 
+/* Тело */
 body {
   background: linear-gradient(145deg, #ffd3e1, #ffd3ea);
   min-height: 100vh;
@@ -13,12 +15,12 @@ body {
   justify-content: center;
 }
 
-/* Контейнер */
+/* Общий контейнер */
 .container {
   background-color: rgba(255, 255, 255, 0.85);
   border-radius: 8px;
   padding: 40px;
-  max-width: 500px;
+  max-width: 600px;
   text-align: center;
   box-shadow: 0 0 30px rgba(0,0,0,0.1);
 }
@@ -78,9 +80,123 @@ button:hover {
   font-size: 0.9rem;
 }
 
-/* Блок кнопок "Yes"/"No" */
+/* Кнопки Yes/No */
 .buttons {
   display: flex;
   justify-content: center;
   gap: 15px;
+}
+
+/* Дополнительные ссылки (на другие страницы) */
+.nav-links {
+  margin-top: 20px;
+}
+.nav-links a {
+  display: inline-block;
+  margin: 5px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #d12053;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+.nav-links a:hover {
+  background-color: #b11746;
+}
+
+/* --- АНИМАЦИЯ СЕРДЕЧЕК --- */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.heart {
+  width: 30px;
+  height: 30px;
+  background-color: #ff5e8e;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  animation: float 6s linear infinite;
+  opacity: 0.8;
+  border-radius: 50% 50% 0 50%;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-color: #ff5e8e;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -15px;
+  left: 0;
+}
+
+.heart::after {
+  left: 15px;
+  top: 0;
+}
+
+/* Индивидуальные задержки и позиции */
+.heart:nth-child(1) { left: 20%; animation-delay: 0s; }
+.heart:nth-child(2) { left: 40%; animation-delay: 1s; }
+.heart:nth-child(3) { left: 60%; animation-delay: 2s; }
+.heart:nth-child(4) { left: 80%; animation-delay: 3s; }
+.heart:nth-child(5) { left: 30%; animation-delay: 4s; }
+.heart:nth-child(6) { left: 70%; animation-delay: 5s; }
+
+@keyframes float {
+  0% {
+    top: 100%;
+    opacity: 0;
+    transform: translateX(-50%) rotate(45deg) scale(0.8);
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    top: -10%;
+    opacity: 0;
+    transform: translateX(-50%) rotate(45deg) scale(1.2);
+  }
+}
+
+/* --- ГАЛЕРЕЯ (Коллаж) --- */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.photo-grid img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* --- ПИСЬМА --- */
+.letter {
+  text-align: left;
+  margin: 20px 0;
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  color: #333;
+}
+.letter h2 {
+  color: #d12053;
+  margin-bottom: 10px;
 }
