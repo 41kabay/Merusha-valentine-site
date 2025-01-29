@@ -3,7 +3,7 @@
  ********************************************************/
 function checkPassword() {
   // Пароль, который нужно ввести
-  const CORRECT_PASSWORD = "secret123";
+  const CORRECT_PASSWORD = "03032004";
 
   let pass = document.getElementById("password").value;
   let errorMsg = document.getElementById("error-msg");
