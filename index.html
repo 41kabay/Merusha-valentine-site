@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Valentine Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="lang-switch">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
+
+  <div class="container">
+    <h1 id="title-login">Enter the secret password</h1>
+    <input type="password" id="password" placeholder="Password" />
+    <button id="login-btn" onclick="checkPassword()">Submit</button>
+    <p id="error-msg" class="error"></p>
+  </div>
+
+  <script>
+    // Текущая страница. Нужно, чтобы script.js знал, какие тексты менять.
+    const currentPage = 'index';
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>
