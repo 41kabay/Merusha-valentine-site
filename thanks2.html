@@ -6,50 +6,32 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Переключатель языка -->
   <div class="lang-switch">
     <button onclick="setLanguage('en')">EN</button>
     <button onclick="setLanguage('ru')">RU</button>
   </div>
 
-  <!-- Основной контейнер -->
   <div class="container">
     <h1 id="title-thanks2">Thank you for being my girlfriend!</h1>
     <p id="subtitle-thanks2">I cherish every moment with you!</p>
 
-    <!-- Кнопка Play/Pause музыки -->
     <button id="music-btn">Play Music</button>
-
-    <!-- Ползунок для перемотки -->
     <div class="progress-control">
       <span id="current-time">0:00</span>
-      <input
-        type="range"
-        id="progress-slider"
-        min="0"
-        value="0"
-        step="1"
-      />
-      <span id="duration-time">3:01</span>
+      <input type="range" id="progress-slider" min="0" value="0" step="1" />
+      <span id="duration-time">0:00</span>
     </div>
 
-    <!-- Ползунок громкости -->
     <div class="volume-control">
       <label for="volume-slider">Volume:</label>
-      <input
-        type="range"
-        id="volume-slider"
-        min="0"
-        max="1"
-        step="0.01"
-        value="1"
-      />
+      <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" />
     </div>
 
-    <!-- Сам звуковой файл -->
-    <audio id="romantic-audio" src="music/Can't%20Help%20Falling%20in%20Love.mp3"></audio>
+    <audio id="romantic-audio" preload="auto">
+      <source src="/music/Can't%20Help%20Falling%20in%20Love.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
 
-    <!-- Ссылки на другие страницы -->
     <div class="nav-links">
       <a href="collage.html">Collage</a>
       <a href="letters.html">Letters</a>
@@ -57,7 +39,6 @@
     </div>
   </div>
 
-  <!-- Сердечки на фоне -->
   <div class="hearts">
     <div class="heart"></div>
     <div class="heart"></div>
@@ -67,12 +48,9 @@
     <div class="heart"></div>
   </div>
 
-  <!-- Указываем, какая страница (для перевода) -->
   <script>
     const currentPage = 'thanks2';
   </script>
-
-  <!-- Подключаем скрипт -->
   <script src="js/script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -87,10 +65,9 @@
 
       let isPlaying = false;
 
-      // Кнопка Play/Pause
       musicBtn.addEventListener('click', () => {
         if (!isPlaying) {
-          audio.play();
+          audio.play().catch(err => console.error('Playback failed:', err));
           isPlaying = true;
           musicBtn.textContent = "Pause Music";
         } else {
@@ -100,29 +77,26 @@
         }
       });
 
-      // Ползунок громкости
       volumeSlider.addEventListener('input', () => {
         audio.volume = volumeSlider.value;
       });
 
-      // Когда аудио загружено, устанавливаем максимальное значение для прогресс-бара
       audio.addEventListener('loadedmetadata', () => {
-        progressSlider.max = Math.floor(audio.duration);
-        durationTimeDisplay.textContent = formatTime(audio.duration);
+        if (audio.duration > 0) {
+          progressSlider.max = Math.floor(audio.duration);
+          durationTimeDisplay.textContent = formatTime(audio.duration);
+        }
       });
 
-      // Обновляем прогресс-бара во время проигрывания
       audio.addEventListener('timeupdate', () => {
         progressSlider.value = Math.floor(audio.currentTime);
         currentTimeDisplay.textContent = formatTime(audio.currentTime);
       });
 
-      // При перемотке обновляем текущую позицию аудио
       progressSlider.addEventListener('input', () => {
         audio.currentTime = progressSlider.value;
       });
 
-      // Функция форматирования времени (секунды -> MM:SS)
       function formatTime(seconds) {
         const min = Math.floor(seconds / 60);
         const sec = Math.floor(seconds % 60);
