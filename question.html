@@ -2,30 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Valentine Question</title>
+  <title>Final Page</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- Переключатель языка -->
   <div class="lang-switch">
     <button onclick="setLanguage('en')">EN</button>
     <button onclick="setLanguage('ru')">RU</button>
   </div>
 
+  <!-- Основной контейнер -->
   <div class="container">
-    <h1 id="title-question">Will you be my valentine?</h1>
-    <div class="buttons">
-      <button id="yes-btn">Yes</button>
-      <button id="no-btn">No</button>
+    <h1 id="title-thanks2">Thank you for being my girlfriend!</h1>
+    <p id="subtitle-thanks2">I cherish every moment with you!</p>
+
+    <!-- Кнопка Play/Pause музыки -->
+    <button id="music-btn">Play Music</button>
+
+    <!-- Ползунок для перемотки -->
+    <div class="progress-control">
+      <span id="current-time">0:00</span>
+      <input
+        type="range"
+        id="progress-slider"
+        min="0"
+        value="0"
+        step="1"
+      />
+      <span id="duration-time">0:00</span>
     </div>
 
-    <!-- Дополнительные ссылки (пример) -->
+    <!-- Ползунок громкости -->
+    <div class="volume-control">
+      <label for="volume-slider">Volume:</label>
+      <input
+        type="range"
+        id="volume-slider"
+        min="0"
+        max="1"
+        step="0.01"
+        value="1"
+      />
+    </div>
+
+    <!-- Сам звуковой файл -->
+    <audio id="romantic-audio" preload="metadata">
+      <source src="music/romantic.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Ссылки на другие страницы -->
     <div class="nav-links">
-      <a href="collage.html">See our Collage</a>
-      <a href="letters.html">Read my Letters</a>
+      <a href="collage.html">Collage</a>
+      <a href="letters.html">Letters</a>
+      <a href="index.html">Go to Start</a>
     </div>
   </div>
 
-  <!-- Сердечки -->
+  <!-- Сердечки на фоне -->
   <div class="hearts">
     <div class="heart"></div>
     <div class="heart"></div>
@@ -35,25 +70,69 @@
     <div class="heart"></div>
   </div>
 
+  <!-- Указываем, какая страница (для перевода) -->
   <script>
-    const currentPage = 'question';
+    const currentPage = 'thanks2';
   </script>
+
+  <!-- Подключаем скрипт -->
   <script src="js/script.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage(selectedLanguage);
 
-      const yesBtn = document.getElementById('yes-btn');
-      const noBtn = document.getElementById('no-btn');
+      const musicBtn = document.getElementById('music-btn');
+      const audio = document.getElementById('romantic-audio');
+      const volumeSlider = document.getElementById('volume-slider');
+      const progressSlider = document.getElementById('progress-slider');
+      const currentTimeDisplay = document.getElementById('current-time');
+      const durationTimeDisplay = document.getElementById('duration-time');
 
-      yesBtn.addEventListener('click', () => {
-        window.location.href = 'thanks.html';
+      let isPlaying = false;
+
+      // Кнопка Play/Pause
+      musicBtn.addEventListener('click', () => {
+        if (!isPlaying) {
+          audio.play();
+          isPlaying = true;
+          musicBtn.textContent = "Pause Music";
+        } else {
+          audio.pause();
+          isPlaying = false;
+          musicBtn.textContent = "Play Music";
+        }
       });
 
-      noBtn.addEventListener('click', () => {
-        // Если «No», тоже ведём на thanks.html
-        window.location.href = 'thanks.html';
+      // Ползунок громкости
+      volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value;
       });
+
+      // Загружаем метаданные и обновляем ползунок длительности
+      audio.addEventListener('loadedmetadata', () => {
+        if (audio.duration > 0) {
+          progressSlider.max = Math.floor(audio.duration);
+          durationTimeDisplay.textContent = formatTime(audio.duration);
+        }
+      });
+
+      // Обновляем положение ползунка во время воспроизведения
+      audio.addEventListener('timeupdate', () => {
+        progressSlider.value = Math.floor(audio.currentTime);
+        currentTimeDisplay.textContent = formatTime(audio.currentTime);
+      });
+
+      // Обновляем позицию трека при перемотке
+      progressSlider.addEventListener('input', () => {
+        audio.currentTime = progressSlider.value;
+      });
+
+      // Функция форматирования времени (секунды -> MM:SS)
+      function formatTime(seconds) {
+        const min = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60);
+        return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+      }
     });
   </script>
 </body>
