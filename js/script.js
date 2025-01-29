@@ -1,8 +1,8 @@
 /********************************************************
- * 1) ПАРОЛЬ
+ * 1) ПРОВЕРКА ПАРОЛЯ
  ********************************************************/
 function checkPassword() {
-  // Укажите желаемый пароль
+  // Пароль, который нужно ввести
   const CORRECT_PASSWORD = "secret123";
 
   let pass = document.getElementById("password").value;
@@ -23,14 +23,13 @@ function checkPassword() {
  * 2) ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА
  ********************************************************/
 
-// По умолчанию выбираем английский
+// По умолчанию - английский
 let selectedLanguage = 'en';
 
-// Эта функция вызывается при нажатии кнопок EN / RU
 function setLanguage(lang) {
   selectedLanguage = lang;
 
-  // Объект перевода для каждой страницы
+  // Все переводы для каждой страницы
   const translations = {
     index: {
       en: {
@@ -66,7 +65,7 @@ function setLanguage(lang) {
       },
       ru: {
         title: "Спасибо!",
-        subtitle: "Я так счастлив(а), что ты согласилась!",
+        subtitle: "Я так рад(а), что ты согласилась!",
         next: "Дальше"
       }
     },
@@ -77,12 +76,40 @@ function setLanguage(lang) {
       },
       ru: {
         title: "Спасибо, что стала моей девушкой!",
-        subtitle: "Я ценю каждое мгновение, проведённое с тобой!"
+        subtitle: "Я дорожу каждым мгновением с тобой!"
+      }
+    },
+    collage: {
+      en: {
+        title: "Our Memories"
+      },
+      ru: {
+        title: "Наши воспоминания"
+      }
+    },
+    letters: {
+      en: {
+        title: "My Letters to You",
+        subtitle1: "When I first saw you",
+        text1: "This is a special letter about the moment we first met...",
+        subtitle2: "When I miss you",
+        text2: "Another letter sharing my feelings when we're apart...",
+        subtitle3: "Our Future",
+        text3: "Some dreams and plans for our wonderful future together..."
+      },
+      ru: {
+        title: "Мои письма для тебя",
+        subtitle1: "Когда я впервые тебя увидел(а)",
+        text1: "Это особое письмо о том моменте, когда мы впервые встретились...",
+        subtitle2: "Когда я скучаю по тебе",
+        text2: "Другое письмо, в котором делюсь чувствами, когда мы в разлуке...",
+        subtitle3: "Наше будущее",
+        text3: "Пару мечтаний и планов о нашем прекрасном общем будущем..."
       }
     }
   };
 
-  if (!translations[currentPage]) return;
+  if (!translations[currentPage]) return; // если не описан в объекте, выходим
   const t = translations[currentPage][lang];
 
   switch (currentPage) {
@@ -90,11 +117,9 @@ function setLanguage(lang) {
       document.getElementById("title-login").textContent = t.titleLogin;
       document.getElementById("password").placeholder = t.placeholder;
       document.getElementById("login-btn").textContent = t.submit;
-      // Если была ошибка при другом языке, очистим/переведём её
+      // Ошибку (если была) обнулим
       let errorMsg = document.getElementById("error-msg");
-      if (errorMsg) {
-        errorMsg.textContent = "";
-      }
+      if (errorMsg) errorMsg.textContent = "";
       break;
 
     case 'question':
@@ -112,6 +137,21 @@ function setLanguage(lang) {
     case 'thanks2':
       document.getElementById("title-thanks2").textContent = t.title;
       document.getElementById("subtitle-thanks2").textContent = t.subtitle;
+      // кнопка музыки можете вручную отредактировать
+      break;
+
+    case 'collage':
+      document.getElementById("title-collage").textContent = t.title;
+      break;
+
+    case 'letters':
+      document.getElementById("title-letters").textContent = t.title;
+      document.getElementById("letters-subtitle1").textContent = t.subtitle1;
+      document.getElementById("letters-text1").textContent = t.text1;
+      document.getElementById("letters-subtitle2").textContent = t.subtitle2;
+      document.getElementById("letters-text2").textContent = t.text2;
+      document.getElementById("letters-subtitle3").textContent = t.subtitle3;
+      document.getElementById("letters-text3").textContent = t.text3;
       break;
   }
 }
