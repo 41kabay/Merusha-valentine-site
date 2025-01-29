@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: linear-gradient(145deg, #ffd3e1, #ffd3ea);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Контейнер */
+.container {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  padding: 40px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #d12053;
+  font-size: 2rem;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+input[type="password"] {
+  width: 60%;
+  padding: 8px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  background-color: #d12053;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #b11746;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Переключатель языка */
+.lang-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.lang-switch button {
+  background-color: #ffffffcc;
+  color: #d12053;
+  border: 2px solid #d12053;
+  margin-left: 5px;
+  font-size: 0.9rem;
+}
+
+/* Блок кнопок "Yes"/"No" */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
