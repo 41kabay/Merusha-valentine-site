@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Valentine Question</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="lang-switch">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
+
+  <div class="container">
+    <h1 id="title-question">Will you be my valentine?</h1>
+    <div class="buttons">
+      <button id="yes-btn">Yes</button>
+      <button id="no-btn">No</button>
+    </div>
+  </div>
+
+  <script>
+    // Текущая страница
+    const currentPage = 'question';
+  </script>
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Устанавливаем язык (берётся из script.js, где есть переменная selectedLanguage)
+      setLanguage(selectedLanguage);
+
+      // Логика кнопок
+      const yesBtn = document.getElementById('yes-btn');
+      const noBtn = document.getElementById('no-btn');
+
+      yesBtn.addEventListener('click', () => {
+        window.location.href = 'thanks.html';
+      });
+
+      noBtn.addEventListener('click', () => {
+        // Можно сделать отдельную страницу на "No"
+        // но пока ведём туда же, на thanks.html
+        window.location.href = 'thanks.html';
+      });
+    });
+  </script>
+</body>
+</html>
