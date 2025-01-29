@@ -200,3 +200,21 @@ button:hover {
   color: #d12053;
   margin-bottom: 10px;
 }
+
+.progress-control, .volume-control {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.progress-control input, .volume-control input {
+  width: 150px; /* Ширина ползунка */
+}
+
+#current-time, #duration-time {
+  font-size: 14px;
+  font-weight: bold;
+}
+
