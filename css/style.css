@@ -235,4 +235,18 @@ button:hover {
   from { height: 10px; }
   to { height: 30px; }
 }
+.petal {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: pink;
+  opacity: 0.8;
+  border-radius: 50%;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh); }
+  100% { transform: translateY(100vh); }
+}
 
