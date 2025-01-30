@@ -165,4 +165,11 @@ function updateVisualizer() {
 }
 
 setInterval(updateVisualizer, 200);
+setInterval(() => {
+  let petal = document.createElement("div");
+  petal.classList.add("petal");
+  petal.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(petal);
+  setTimeout(() => petal.remove(), 5000);
+}, 300);
 
