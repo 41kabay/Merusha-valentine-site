@@ -251,3 +251,24 @@ document.getElementById("no-btn").addEventListener("click", function (event) {
   event.stopPropagation();
 });
 
+document.getElementById("no-btn").addEventListener("mouseover", function () {
+  let buttonWidth = this.offsetWidth;
+  let buttonHeight = this.offsetHeight;
+  
+  // Вычисляем максимальные координаты, чтобы кнопка не выходила за экран
+  let maxX = window.innerWidth - buttonWidth;
+  let maxY = window.innerHeight - buttonHeight;
+
+  let x = Math.random() * maxX;
+  let y = Math.random() * maxY;
+
+  this.style.position = "absolute";
+  this.style.left = `${x}px`;
+  this.style.top = `${y}px`;
+});
+
+// Блокируем нажатие на кнопку
+document.getElementById("no-btn").addEventListener("click", function (event) {
+  event.preventDefault();
+  event.stopPropagation();
+});
