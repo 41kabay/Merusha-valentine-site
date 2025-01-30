@@ -504,3 +504,9 @@ img:hover {
   cursor: not-allowed;
   user-select: none;
 }
+html, body {
+  overflow-x: hidden; /* Запрещаем горизонтальный скролл */
+  overflow-y: auto;   /* Разрешаем вертикальный скролл */
+  height: auto;
+}
+
