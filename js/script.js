@@ -155,3 +155,14 @@ function setLanguage(lang) {
       break;
   }
 }
+const bars = document.querySelectorAll('.bar');
+
+function updateVisualizer() {
+  let volume = Math.random() * 20 + 10;
+  bars.forEach(bar => {
+    bar.style.height = `${volume}px`;
+  });
+}
+
+setInterval(updateVisualizer, 200);
+
