@@ -212,22 +212,24 @@ setInterval(() => {
   document.body.appendChild(compliment);
   setTimeout(() => compliment.remove(), 5000);
 }, 3000);
-// Функция для создания плавающих эмодзи (например, 🍆 или 💦)
+// Функция для создания падающих эмодзи
 setInterval(() => {
   let emoji = document.createElement("div");
-  emoji.classList.add("floating-emoji");
+  emoji.classList.add("falling-emoji");
 
-  // Список эмодзи, которые будут плавать
-  const emojis = ["🍆", "💦", "🔥"];
+  // Список эмодзи (можно заменить на другие)
+  const emojis = ["🍆", "💦", "😏", "🔥"];
   emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
 
-  // Рандомное расположение
+  // Рандомное расположение по ширине
   emoji.style.left = Math.random() * 100 + "vw";
-  emoji.style.animationDuration = Math.random() * 5 + 3 + "s";
+
+  // Добавляем случайное время анимации, чтобы они падали с разной скоростью
+  emoji.style.animationDuration = Math.random() * 3 + 2 + "s";
 
   document.body.appendChild(emoji);
 
-  // Удаляем
-  setTimeout(() => emoji.remove(), 8000);
-}, 1000);
+  // Удаляем через 5 секунд, чтобы не загружать страницу
+  setTimeout(() => emoji.remove(), 5000);
+}, 500);
 
