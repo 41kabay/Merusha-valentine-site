@@ -236,4 +236,18 @@ document.addEventListener("mousemove", (e) => {
   document.body.style.backgroundPositionX = -e.clientX / 50 + "px";
   document.body.style.backgroundPositionY = -e.clientY / 50 + "px";
 });
+document.getElementById("no-btn").addEventListener("mouseover", function () {
+  let x = Math.random() * (window.innerWidth - this.offsetWidth);
+  let y = Math.random() * (window.innerHeight - this.offsetHeight);
+
+  this.style.position = "absolute";
+  this.style.left = `${x}px`;
+  this.style.top = `${y}px`;
+});
+
+// Блокируем клик
+document.getElementById("no-btn").addEventListener("click", function (event) {
+  event.preventDefault();
+  event.stopPropagation();
+});
 
