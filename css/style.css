@@ -506,7 +506,8 @@ img:hover {
 }
 html, body {
   overflow-x: hidden; /* Запрещаем горизонтальный скролл */
-  overflow-y: auto;   /* Разрешаем вертикальный скролл */
+  overflow-y: auto;   /* Включаем вертикальный скролл */
   height: auto;
+  min-height: 100vh;
 }
 
