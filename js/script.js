@@ -267,3 +267,26 @@ document.getElementById("no-btn").addEventListener("click", function (event) {
   event.preventDefault();
   event.stopPropagation();
 });
+document.addEventListener("DOMContentLoaded", function () {
+  let noBtn = document.getElementById("no-btn");
+
+  noBtn.addEventListener("mouseover", function () {
+    let buttonWidth = noBtn.offsetWidth;
+    let buttonHeight = noBtn.offsetHeight;
+
+    // Ограничиваем границы экрана
+    let maxX = window.innerWidth - buttonWidth - 20; // Отступ 20px от края
+    let maxY = window.innerHeight - buttonHeight - 20;
+
+    // Генерируем новые координаты, не выходя за границы
+    let x = Math.max(20, Math.random() * maxX);
+    let y = Math.max(20, Math.random() * maxY);
+
+    // Двигаем кнопку
+    noBtn.style.position = "absolute";
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+  });
+
+  // Блокируем нажатие на кнопку
+  noBtn.addEventListener("c
