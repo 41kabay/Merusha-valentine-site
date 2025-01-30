@@ -8,12 +8,14 @@
 
 /* Тело */
 body {
-  background: linear-gradient(145deg, #ffd3e1, #ffd3ea);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  background-attachment: fixed;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
 }
+
 
 /* Общий контейнер */
 .container {
@@ -45,19 +47,28 @@ input[type="password"] {
 }
 
 button {
-  cursor: pointer;
-  padding: 10px 20px;
-  margin: 5px;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
   border: none;
-  background-color: #d12053;
-  color: #fff;
-  border-radius: 5px;
-  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 5px 15px rgba(255, 118, 136, 0.4);
 }
 
 button:hover {
-  background-color: #b11746;
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgba(255, 118, 136, 0.6);
 }
+
+button:active {
+  transform: scale(1);
+  box-shadow: 0px 3px 10px rgba(255, 118, 136, 0.3);
+}
+
 
 .error {
   color: red;
@@ -441,4 +452,42 @@ body {
     transform: translateY(110vh) scale(1.2);
     opacity: 0;
   }
+}
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff758c, #ff7eb3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 5px rgba(255, 118, 136, 0.4);
+}
+img {
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(-10deg); }
+}
+.glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,118,136,0.5) 10%, rgba(255,118,136,0) 80%);
+  border-radius: 50%;
+  opacity: 0.8;
+  filter: blur(40px);
+  animation: glowMove 10s infinite alternate;
+}
+
+@keyframes glowMove {
+  from { transform: translate(-50px, -50px); }
+  to { transform: translate(50px, 50px); }
 }
