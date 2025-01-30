@@ -232,4 +232,8 @@ setInterval(() => {
   // Удаляем через 5 секунд, чтобы не загружать страницу
   setTimeout(() => emoji.remove(), 5000);
 }, 500);
+document.addEventListener("mousemove", (e) => {
+  document.body.style.backgroundPositionX = -e.clientX / 50 + "px";
+  document.body.style.backgroundPositionY = -e.clientY / 50 + "px";
+});
 
