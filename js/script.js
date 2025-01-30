@@ -245,22 +245,17 @@ document.getElementById("no-btn").addEventListener("mouseover", function () {
   this.style.top = `${y}px`;
 });
 
-// Блокируем клик
-document.getElementById("no-btn").addEventListener("click", function (event) {
-  event.preventDefault();
-  event.stopPropagation();
-});
-
 document.getElementById("no-btn").addEventListener("mouseover", function () {
   let buttonWidth = this.offsetWidth;
   let buttonHeight = this.offsetHeight;
   
-  // Вычисляем максимальные координаты, чтобы кнопка не выходила за экран
-  let maxX = window.innerWidth - buttonWidth;
-  let maxY = window.innerHeight - buttonHeight;
+  // Вычисляем границы экрана (убираем возможность выхода за край)
+  let maxX = window.innerWidth - buttonWidth - 10;
+  let maxY = window.innerHeight - buttonHeight - 10;
 
-  let x = Math.random() * maxX;
-  let y = Math.random() * maxY;
+  // Генерируем новые координаты внутри границ
+  let x = Math.max(10, Math.random() * maxX);
+  let y = Math.max(10, Math.random() * maxY);
 
   this.style.position = "absolute";
   this.style.left = `${x}px`;
