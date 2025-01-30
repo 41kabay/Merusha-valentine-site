@@ -179,4 +179,33 @@ document.getElementById("no-btn").addEventListener("mouseover", function() {
   this.style.left = `${x}px`;
   this.style.top = `${y}px`;
 });
+document.getElementById("yes-btn").addEventListener("click", (e) => {
+  for (let i = 0; i < 10; i++) {
+    let star = document.createElement("div");
+    star.classList.add("star");
+    star.style.left = `${e.clientX + Math.random() * 50 - 25}px`;
+    star.style.top = `${e.clientY + Math.random() * 50 - 25}px`;
+    document.body.appendChild(star);
+    setTimeout(() => star.remove(), 1000);
+  }
+});
+function showMessage() {
+  document.getElementById("hidden-message").style.display = "block";
+}
+const compliments = [
+  "You are beautiful 💖",
+  "You make me happy 😊",
+  "You are my sunshine ☀️",
+  "You have the cutest smile 😍",
+  "I love you 💕"
+];
+
+setInterval(() => {
+  let compliment = document.createElement("div");
+  compliment.classList.add("compliment");
+  compliment.textContent = compliments[Math.floor(Math.random() * compliments.length)];
+  compliment.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(compliment);
+  setTimeout(() => compliment.remove(), 5000);
+}, 3000);
 
