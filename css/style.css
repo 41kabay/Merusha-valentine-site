@@ -217,4 +217,22 @@ button:hover {
   font-size: 14px;
   font-weight: bold;
 }
+.music-visualizer {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.bar {
+  width: 5px;
+  height: 20px;
+  background: #ff4d6d;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from { height: 10px; }
+  to { height: 30px; }
+}
 
