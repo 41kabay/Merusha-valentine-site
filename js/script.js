@@ -172,4 +172,11 @@ setInterval(() => {
   document.body.appendChild(petal);
   setTimeout(() => petal.remove(), 5000);
 }, 300);
+document.getElementById("no-btn").addEventListener("mouseover", function() {
+  let x = Math.random() * (window.innerWidth - this.offsetWidth);
+  let y = Math.random() * (window.innerHeight - this.offsetHeight);
+  this.style.position = "absolute";
+  this.style.left = `${x}px`;
+  this.style.top = `${y}px`;
+});
 
