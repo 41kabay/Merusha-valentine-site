@@ -6,32 +6,49 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- Переключатель языка -->
   <div class="lang-switch">
     <button onclick="setLanguage('en')">EN</button>
     <button onclick="setLanguage('ru')">RU</button>
   </div>
 
+  <!-- Основной контейнер -->
   <div class="container">
-    <h1 id="title-thanks2">Thank you for being my girlfriend!</h1>
+    <h1 id="title-thanks2" class="typing-text">Thank you for being my girlfriend!</h1>
     <p id="subtitle-thanks2">I cherish every moment with you!</p>
 
+    <!-- Кнопка Play/Pause музыки -->
     <button id="music-btn">Play Music</button>
+
+    <!-- Ползунок для перемотки -->
     <div class="progress-control">
       <span id="current-time">0:00</span>
       <input type="range" id="progress-slider" min="0" value="0" step="1" />
       <span id="duration-time">0:00</span>
     </div>
 
+    <!-- Ползунок громкости -->
     <div class="volume-control">
       <label for="volume-slider">Volume:</label>
       <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" />
     </div>
 
+    <!-- Визуализация музыки -->
+    <div class="music-visualizer">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <!-- Сам звуковой файл -->
     <audio id="romantic-audio" preload="auto">
-      <source src="/music/Can't%20Help%20Falling%20in%20Love.mp3" type="audio/mpeg">
+      <source src="music/cant-help-falling-in-love.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
 
+    <!-- Ссылки на другие страницы -->
     <div class="nav-links">
       <a href="collage.html">Collage</a>
       <a href="letters.html">Letters</a>
@@ -39,14 +56,11 @@
     </div>
   </div>
 
-  <div class="hearts">
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-  </div>
+  <!-- Сердечки на фоне -->
+  <div class="hearts"></div>
+
+  <!-- Лепестки роз -->
+  <div class="rose-petals"></div>
 
   <script>
     const currentPage = 'thanks2';
@@ -62,9 +76,11 @@
       const progressSlider = document.getElementById('progress-slider');
       const currentTimeDisplay = document.getElementById('current-time');
       const durationTimeDisplay = document.getElementById('duration-time');
+      const bars = document.querySelectorAll('.bar');
 
       let isPlaying = false;
 
+      // Кнопка Play/Pause музыки
       musicBtn.addEventListener('click', () => {
         if (!isPlaying) {
           audio.play().catch(err => console.error('Playback failed:', err));
@@ -77,10 +93,12 @@
         }
       });
 
+      // Ползунок громкости
       volumeSlider.addEventListener('input', () => {
         audio.volume = volumeSlider.value;
       });
 
+      // Загружаем метаданные и обновляем ползунок длительности
       audio.addEventListener('loadedmetadata', () => {
         if (audio.duration > 0) {
           progressSlider.max = Math.floor(audio.duration);
@@ -88,20 +106,41 @@
         }
       });
 
+      // Обновляем положение ползунка во время воспроизведения
       audio.addEventListener('timeupdate', () => {
         progressSlider.value = Math.floor(audio.currentTime);
         currentTimeDisplay.textContent = formatTime(audio.currentTime);
       });
 
+      // Обновляем позицию трека при перемотке
       progressSlider.addEventListener('input', () => {
         audio.currentTime = progressSlider.value;
       });
+
+      // Визуализация музыки
+      function updateVisualizer() {
+        let volume = Math.random() * 20 + 10;
+        bars.forEach(bar => {
+          bar.style.height = `${volume}px`;
+        });
+      }
+
+      setInterval(updateVisualizer, 200);
 
       function formatTime(seconds) {
         const min = Math.floor(seconds / 60);
         const sec = Math.floor(seconds % 60);
         return `${min}:${sec < 10 ? '0' : ''}${sec}`;
       }
+
+      // Лепестки роз
+      setInterval(() => {
+        let petal = document.createElement("div");
+        petal.classList.add("petal");
+        petal.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(petal);
+        setTimeout(() => petal.remove(), 5000);
+      }, 300);
     });
   </script>
 </body>
