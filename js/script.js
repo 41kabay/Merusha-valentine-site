@@ -212,4 +212,22 @@ setInterval(() => {
   document.body.appendChild(compliment);
   setTimeout(() => compliment.remove(), 5000);
 }, 3000);
+// Функция для создания плавающих эмодзи (например, 🍆 или 💦)
+setInterval(() => {
+  let emoji = document.createElement("div");
+  emoji.classList.add("floating-emoji");
+
+  // Список эмодзи, которые будут плавать
+  const emojis = ["🍆", "💦", "🔥"];
+  emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+  // Рандомное расположение
+  emoji.style.left = Math.random() * 100 + "vw";
+  emoji.style.animationDuration = Math.random() * 5 + 3 + "s";
+
+  document.body.appendChild(emoji);
+
+  // Удаляем
+  setTimeout(() => emoji.remove(), 8000);
+}, 1000);
 
