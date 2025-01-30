@@ -283,3 +283,33 @@ body {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* Убираем двойной скроллбар */
+html, body {
+  overflow-x: hidden;  /* Запрещаем горизонтальную прокрутку */
+  overflow-y: auto;  /* Разрешаем вертикальную прокрутку */
+  height: auto;  /* Не фиксируем высоту */
+}
+
+/* Исправляем прокрутку внутри контейнера */
+.container {
+  overflow: visible !important; /* Позволяем контенту свободно прокручиваться */
+  height: auto;
+}
+
+/* Если grid занимает больше места, не даём ему создавать доп. скролл */
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Исправляем возможные проблемы с body */
+body {
+  min-height: 100vh;  /* Позволяет странице нормально прокручиваться */
+  margin: 0; /* Избегаем дополнительных отступов */
+  padding: 0;
+}
