@@ -361,3 +361,13 @@ body {
   margin: 0; /* Избегаем дополнительных отступов */
   padding: 0;
 }
+#yes-btn {
+  transition: all 0.3s ease-in-out;
+}
+
+#yes-btn:hover {
+  transform: scale(1.2);
+  background-color: #ff4d6d;
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 77, 109, 0.8);
+}
