@@ -491,3 +491,16 @@ img:hover {
   from { transform: translate(-50px, -50px); }
   to { transform: translate(50px, 50px); }
 }
+#no-btn {
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  background: red;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: not-allowed;
+  user-select: none;
+}
