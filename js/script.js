@@ -288,5 +288,41 @@ document.addEventListener("DOMContentLoaded", function () {
     noBtn.style.top = `${y}px`;
   });
 
-  // Блокируем нажатие на кнопку
-  noBtn.addEventListener("c
+  document.addEventListener("DOMContentLoaded", function () {
+  let noBtn = document.getElementById("no-btn");
+  let yesBtn = document.getElementById("yes-btn");
+
+  noBtn.addEventListener("mouseover", function () {
+    let buttonWidth = noBtn.offsetWidth;
+    let buttonHeight = noBtn.offsetHeight;
+
+    let yesBtnRect = yesBtn.getBoundingClientRect(); // Координаты кнопки "YES"
+
+    // Границы экрана
+    let maxX = window.innerWidth - buttonWidth - 20; // Отступ 20px от края
+    let maxY = window.innerHeight - buttonHeight - 20;
+
+    let newX, newY;
+
+    do {
+      // Генерируем координаты, не выходя за экран
+      newX = Math.max(20, Math.random() * maxX);
+      newY = Math.max(20, Math.random() * maxY);
+    } while (
+      newX + buttonWidth > yesBtnRect.left &&
+      newX < yesBtnRect.right &&
+      newY + buttonHeight > yesBtnRect.top &&
+      newY < yesBtnRect.bottom
+    ); // Проверяем, чтобы кнопка "NO" не наложилась на "YES"
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = `${newX}px`;
+    noBtn.style.top = `${newY}px`;
+  });
+
+  // Блокируем клик по "NO"
+  noBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  });
+});
