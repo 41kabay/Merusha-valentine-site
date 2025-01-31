@@ -326,3 +326,24 @@ document.addEventListener("DOMContentLoaded", function () {
     event.stopPropagation();
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  // Функция проверки пароля
+  function checkPassword() {
+    const CORRECT_PASSWORD = "03032004"; // Убедись, что пароль правильный
+    let pass = document.getElementById("password").value;
+    let errorMsg = document.getElementById("error-msg");
+
+    if (pass === CORRECT_PASSWORD) {
+      window.location.href = "question.html"; // Переход на следующий экран
+    } else {
+      errorMsg.textContent = "Неправильный пароль!"; // Показываем ошибку
+      errorMsg.style.color = "red";
+    }
+  }
+
+  // Проверяем, есть ли кнопка входа и привязываем событие
+  let loginBtn = document.getElementById("login-btn");
+  if (loginBtn) {
+    loginBtn.addEventListener("click", checkPassword);
+  }
+});
