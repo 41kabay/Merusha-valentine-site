@@ -523,4 +523,23 @@ html, body {
   cursor: not-allowed;
   user-select: none;
 }
+.nav-links a {
+  display: inline-block;
+  margin: 10px;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(255, 118, 136, 0.4);
+}
+
+.nav-links a:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #ff4d6d, #ff758c);
+  box-shadow: 0 10px 20px rgba(255, 118, 136, 0.6);
+}
 
