@@ -14,38 +14,32 @@
   <div class="container">
     <!-- Письмо перед вводом пароля -->
     <div class="letter-box">
-      <h2 id="letter-title"></h2>
+      <h2 id="letter-title">💕 My Love 💕</h2>
       <p id="letter-content">
-     
+        You are the most special person in my life. This site is just a small way of showing how much I love you! 💖
       </p>
     </div>
-<div class="valentine-card">
-  <div class="card-front">
-    <p>Click to Open</p>
-    ❤️
-  </div>
-  <div class="card-inside">
-    <p>My Love,</p>
-    <p>You are the best thing that ever happened to me. I made this for you! 💖</p>
-  </div>
-</div>
+
+    <!-- Открытка -->
+    <div class="valentine-card">
+      <div class="card-front">
+        <p>Click to Open</p> ❤️
+      </div>
+      <div class="card-inside">
+        <p>My Love,</p>
+        <p>You are the best thing that ever happened to me. I made this for you! 💖</p>
+      </div>
+    </div>
 
     <!-- Поле ввода пароля -->
     <h1 id="title-login">Enter the secret password</h1>
     <input type="password" id="password" placeholder="Password" />
-    <button id="login-btn" onclick="checkPassword()">Submit</button>
+    <button id="login-btn">Submit</button>
     <p id="error-msg" class="error"></p>
   </div>
 
-  <!-- Сердечки -->
-  <div class="hearts">
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-  </div>
+  <!-- Сердечки (поместил ниже, чтобы не перекрывали пароль) -->
+  <div class="hearts"></div>
 
   <script>
     const currentPage = 'index';
