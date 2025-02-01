@@ -267,3 +267,36 @@ document.getElementById("no-btn").addEventListener("click", function (event) {
   event.preventDefault();
   event.stopPropagation();
 });
+document.addEventListener('DOMContentLoaded', () => {
+  /* Анимация плавного появления */
+  document.querySelector('.container').classList.add('fade-in');
+
+  /* Парящие сердечки */
+  setInterval(() => {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }, 1000);
+
+  /* Кнопка NO (бегающая) */
+  let noBtn = document.getElementById("no-btn");
+  if (noBtn) {
+    noBtn.addEventListener("mouseover", function () {
+      let maxX = window.innerWidth - this.offsetWidth - 20;
+      let maxY = window.innerHeight - this.offsetHeight - 20;
+      this.style.left = Math.max(20, Math.random() * maxX) + "px";
+      this.style.top = Math.max(20, Math.random() * maxY) + "px";
+    });
+
+    noBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    });
+  }
+
+  /* Печатный текст */
+  const typingTexts = document.querySelectorAll('.typing-text');
+  typingTexts.forEach(el => el.style.width = el.scrollWidth + 'px');
+});
