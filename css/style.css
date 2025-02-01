@@ -542,4 +542,125 @@ html, body {
   background: linear-gradient(135deg, #ff4d6d, #ff758c);
   box-shadow: 0 10px 20px rgba(255, 118, 136, 0.6);
 }
+/* Сброс стилей */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Градиентный фон */
+body {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  background-attachment: fixed;
+  color: #333;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Основной контейнер */
+.container {
+  width: 80%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+}
+
+/* Анимация плавного появления */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Улучшенные кнопки */
+button, .nav-links a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 5px 15px rgba(255, 118, 136, 0.4);
+}
+
+button:hover, .nav-links a:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #ff4d6d, #ff758c);
+  box-shadow: 0px 10px 20px rgba(255, 118, 136, 0.6);
+}
+
+/* Анимация печатного текста */
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 2px solid #ff4d6d;
+  white-space: nowrap;
+  animation: typing 3s steps(30, end) forwards, blink 1s infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Парящие сердечки */
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(-10deg); }
+}
+
+.heart {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #ff5e8e;
+  transform: rotate(45deg);
+  animation: float 6s infinite;
+  opacity: 0.8;
+  border-radius: 50% 50% 0 50%;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-color: #ff5e8e;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart::before { top: -15px; left: 0; }
+.heart::after { left: 15px; top: 0; }
+
+/* Улучшенный скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fad0c4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff4d6d;
+  border-radius: 10px;
+}
 
