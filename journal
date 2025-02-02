@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Love Journal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="lang-switch">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
+
+  <div class="container">
+    <h1 class="typing-text" id="journal-title">Our Love Journal</h1>
+
+    <!-- Раздел: Совместимость по знакам зодиака -->
+    <div class="journal-section">
+      <h2 id="zodiac-title">Zodiac Compatibility</h2>
+      <p id="zodiac-text">Sagittarius ♐ & Cancer ♋ - A cosmic love story written in the stars.</p>
+      <img src="images/zodiac.jpg" alt="Zodiac Compatibility" class="journal-image">
+    </div>
+
+    <!-- Раздел: Любимые места -->
+    <div class="journal-section">
+      <h2 id="places-title">Our Favorite Places</h2>
+      <p id="places-text">The special places where our hearts feel at home.</p>
+      <img src="images/map.png" alt="Favorite Places" class="journal-image">
+    </div>
+
+    <!-- Раздел: Любимые фильмы и музыка -->
+    <div class="journal-section">
+      <h2 id="movies-title">Movies & Music We Love</h2>
+      <p id="movies-text">Cinema nights and our soundtrack of love.</p>
+      <img src="images/movies.jpg" alt="Movies & Music" class="journal-image">
+    </div>
+
+    <!-- Раздел: Важные даты -->
+    <div class="journal-section">
+      <h2 id="dates-title">Special Dates</h2>
+      <p id="dates-text">Our unforgettable moments together.</p>
+      <img src="images/calendar.jpg" alt="Special Dates" class="journal-image">
+    </div>
+
+    <!-- Раздел: Мечты и планы -->
+    <div class="journal-section">
+      <h2 id="dreams-title">Dreams & Plans</h2>
+      <p id="dreams-text">Our shared dreams for the future.</p>
+      <img src="images/dreams.jpg" alt="Dreams & Plans" class="journal-image">
+    </div>
+
+    <!-- Навигация -->
+    <div class="nav-links">
+      <a href="index.html">Go to Start</a>
+      <a href="collage.html">Collage</a>
+      <a href="letters.html">Letters</a>
+    </div>
+  </div>
+
+  <!-- Фоновые сердечки -->
+  <div class="hearts"></div>
+
+  <script>
+    const currentPage = 'journal';
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>
