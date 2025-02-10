@@ -763,3 +763,29 @@ button:hover, .nav-links a:hover {
 .book.flipped .page-right {
     transform: rotateY(0deg);
 }
+/* --- Улучшаем заголовки, чтобы влезали --- */
+h1 {
+    font-size: 2.5rem; /* Чуть меньше, чтобы помещался */
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(255, 118, 136, 0.4);
+    text-align: center;
+    word-wrap: break-word; /* Разрешаем перенос */
+    overflow-wrap: break-word;
+}
+
+/* --- Медиа-запрос для мобильных (уменьшаем шрифт) --- */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem; /* Меньше для телефонов */
+        line-height: 1.2; /* Делаем строки ближе */
+    }
+}
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
