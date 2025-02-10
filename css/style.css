@@ -694,3 +694,46 @@ button:hover, .nav-links a:hover {
         opacity: 0;
     }
 }
+/* Контейнер книги */
+.book {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    perspective: 1000px;
+    margin: auto;
+}
+
+/* Страница книги */
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform-origin: left;
+    transition: transform 0.8s ease-in-out;
+}
+
+/* Левая и правая страницы */
+.page-left {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.page-right {
+    z-index: 1;
+    transform: rotateY(-180deg);
+}
+
+/* Анимация переворота */
+.book.flipped .page-left {
+    transform: rotateY(-180deg);
+}
+
+.book.flipped .page-right {
+    transform: rotateY(0deg);
+}
