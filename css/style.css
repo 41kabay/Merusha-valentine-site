@@ -737,3 +737,29 @@ button:hover, .nav-links a:hover {
 .book.flipped .page-right {
     transform: rotateY(0deg);
 }
+.book {
+    width: 80vw;
+    height: 60vh;
+    display: flex;
+    perspective: 2000px;
+    margin: auto;
+}
+
+.page {
+    width: 50%;
+    height: 100%;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: absolute;
+    transition: transform 0.8s ease-in-out;
+}
+
+/* Улучшаем 3D-анимацию переворота */
+.book.flipped .page-left {
+    transform: rotateY(-180deg);
+}
+
+.book.flipped .page-right {
+    transform: rotateY(0deg);
+}
