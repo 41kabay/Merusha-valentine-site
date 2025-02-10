@@ -300,3 +300,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const typingTexts = document.querySelectorAll('.typing-text');
   typingTexts.forEach(el => el.style.width = el.scrollWidth + 'px');
 });
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("page");
+
+    // Добавляем плавный переход при клике на ссылки
+    document.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); // Останавливаем мгновенный переход
+            const href = this.getAttribute("href");
+
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+                window.location.href = href; // Переход после анимации
+            }, 500);
+        });
+    });
+});
