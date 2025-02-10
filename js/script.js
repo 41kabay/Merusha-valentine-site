@@ -316,3 +316,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+document.getElementById("flip-btn").addEventListener("click", function () {
+    document.querySelector(".book").classList.toggle("flipped");
+});
