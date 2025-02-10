@@ -1,24 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>My Letters to You</title>
-    <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8" />
+  <title>Letters for You</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .blurred {
+      filter: blur(5px);
+      transition: filter 0.3s ease-in-out;
+    }
+    .unblurred {
+      filter: blur(0);
+    }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0px 5px 15px rgba(255, 118, 136, 0.4);
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 10px 20px rgba(255, 118, 136, 0.6);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="typing-text">💌 My Letters to You</h1>
+  <div class="lang-switch">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
 
-        <div class="letter-list">
-            <a href="letter1.html" class="btn">📜 Letter 1: Thank You</a>
-            <a href="letter2.html" class="btn">💭 Letter 2: When I Miss You</a>
-            <a href="letter3.html" class="btn">🌟 Letter 3: Our Future</a>
-        </div>
+  <div class="container">
+    <h1 id="title-letters">My Letters to You</h1>
 
-        <div class="nav-links">
-            <a href="index.html" class="btn">🏠 Home</a>
-            <a href="journal.html" class="btn">📖 Journal</a>
-        </div>
+    <div class="letter">
+      <h2 id="letters-subtitle1">Thank you letter</h2>
+      <p id="letters-text1" class="blurred">
+        Thank you for being in my life.
+      </p>
+      <button class="btn" onclick="unlockLetter('letters-text1', 'pass1')">Unlock</button>
+      <input type="password" id="pass1" placeholder="Enter password">
     </div>
+
+    <div class="letter">
+      <h2 id="letters-subtitle2">When I miss you</h2>
+      <p id="letters-text2" class="blurred">
+        Another letter sharing my feelings when we're apart...
+      </p>
+      <button class="btn" onclick="unlockLetter('letters-text2', 'pass2')">Unlock</button>
+      <input type="password" id="pass2" placeholder="Enter password">
+    </div>
+
+    <div class="letter">
+      <h2 id="letters-subtitle3">Our Future</h2>
+      <p id="letters-text3" class="blurred">
+        Some dreams and plans for our wonderful future together...
+      </p>
+      <button class="btn" onclick="unlockLetter('letters-text3', 'pass3')">Unlock</button>
+      <input type="password" id="pass3" placeholder="Enter password">
+    </div>
+
+    <div class="nav-links">
+      <a href="collage.html" class="btn">Collage</a>
+      <a href="thanks2.html" class="btn">Final Page</a>
+    </div>
+  </div>
+
+  <!-- Сердечки -->
+  <div class="hearts">
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+  </div>
+
+  <script>
+    const currentPage = 'letters';
+    function unlockLetter(textId, passId) {
+      const passwords = {
+        'letters-text1': 'love123',
+        'letters-text2': 'missyou',
+        'letters-text3': 'future'
+      };
+      
+      let inputPass = document.getElementById(passId).value;
+      let letter = document.getElementById(textId);
+      
+      if (inputPass === passwords[textId]) {
+        letter.classList.remove('blurred');
+        letter.classList.add('unblurred');
+      } else {
+        alert('Wrong password! Try again.');
+      }
+    }
+  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
