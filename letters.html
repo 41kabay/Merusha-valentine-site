@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Letters for You</title>
+  <title>Love Journal</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -12,47 +12,63 @@
   </div>
 
   <div class="container">
-    <h1 id="title-letters">My Letters to You</h1>
-
-    <div class="letter">
-      <h2 id="letters-subtitle1">Thank you letter</h2>
-      <p id="letters-text1">
-        Thank you for being in my life.
-      </p>
+    <h1 class="typing-text">Our Love Journal</h1>
+    
+    <div class="journal-cover">
+      <h2>📖 Our Love Story</h2>
+      <p>A journey through our special moments together...</p>
     </div>
 
-    <div class="letter">
-      <h2 id="letters-subtitle2">When I miss you</h2>
-      <p id="letters-text2">
-        Another letter sharing my feelings when we're apart...
-      </p>
-    </div>
+    <div class="journal-pages">
+      <!-- Page 1: Introduction -->
+      <div class="page">
+        <h2>How We Met</h2>
+        <p>The beautiful story of how our paths crossed and started this adventure.</p>
+        <img src="images/first_meeting.jpg" alt="First Meeting" class="journal-image">
+      </div>
 
-    <div class="letter">
-      <h2 id="letters-subtitle3">Our Future</h2>
-      <p id="letters-text3">
-        Some dreams and plans for our wonderful future together...
-      </p>
+      <!-- Page 2: Zodiac Compatibility -->
+      <div class="page">
+        <h2>Zodiac Compatibility</h2>
+        <p>Sagittarius ♐ & Cancer ♋ - A love written in the stars.</p>
+        <img src="images/zodiac.jpg" alt="Zodiac Compatibility" class="journal-image">
+      </div>
+
+      <!-- Page 3: Our Favorite Places -->
+      <div class="page">
+        <h2>Favorite Places</h2>
+        <p>Our special spots where we've made beautiful memories.</p>
+        <img src="images/map.png" alt="Favorite Places" class="journal-image">
+      </div>
+
+      <!-- Page 4: Favorite Movies & Music -->
+      <div class="page">
+        <h2>Movies & Music We Love</h2>
+        <p>Our shared soundtrack and cinematic moments.</p>
+        <img src="images/movies.jpg" alt="Movies & Music" class="journal-image">
+      </div>
+
+      <!-- Page 5: Special Dates -->
+      <div class="page">
+        <h2>Special Dates</h2>
+        <p>Our most unforgettable moments together.</p>
+        <img src="images/calendar.jpg" alt="Special Dates" class="journal-image">
+      </div>
     </div>
 
     <div class="nav-links">
+      <a href="index.html">Go to Start</a>
       <a href="collage.html">Collage</a>
-      <a href="thanks2.html">Final Page</a>
+      <a href="letters.html">Letters</a>
+      <a href="journal.html">Journal</a>
     </div>
   </div>
 
-  <!-- Сердечки -->
-  <div class="hearts">
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-  </div>
+  <!-- Background Hearts Animation -->
+  <div class="hearts"></div>
 
   <script>
-    const currentPage = 'letters';
+    const currentPage = 'love_journal';
   </script>
   <script src="js/script.js"></script>
 </body>
