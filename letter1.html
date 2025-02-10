@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Letter 1</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="typing-text">📜 Letter 1: Thank You</h1>
+
+        <p>Enter the secret password to read the letter:</p>
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="error-msg" class="error"></p>
+
+        <div id="letter-content" style="display: none;">
+            <p>My Love,</p>
+            <p>Thank you for being in my life. Every moment with you is special...</p>
+        </div>
+
+        <div class="nav-links">
+            <a href="letters.html" class="btn">🔙 Back to Letters</a>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const CORRECT_PASSWORD = "love123"; // Уникальный пароль
+            let pass = document.getElementById("password").value;
+            let errorMsg = document.getElementById("error-msg");
+            let letterContent = document.getElementById("letter-content");
+
+            if (pass === CORRECT_PASSWORD) {
+                letterContent.style.display = "block";
+                errorMsg.textContent = "";
+            } else {
+                errorMsg.textContent = "Wrong password!";
+                errorMsg.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
