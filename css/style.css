@@ -807,14 +807,19 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 2px 2px 5px rgba(255, 118, 136, 0.4);
-    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
 }
+
 
 /* Кнопки */
 .question-buttons {
     display: flex;
+    justify-content: center;
     gap: 20px;
+    margin-top: 20px;
 }
+
 
 .question-buttons button {
     padding: 15px 25px;
