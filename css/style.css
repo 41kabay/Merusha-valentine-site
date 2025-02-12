@@ -846,3 +846,61 @@ h1 {
 #no-btn:hover {
     transform: scale(1.2) rotate(5deg);
 }
+/* Центрирование страницы */
+.thank-you-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Заголовок с эффектом печати */
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#title-thanks {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(255, 118, 136, 0.4);
+    opacity: 0;
+    animation: fadeInText 1.5s forwards;
+}
+
+/* Светящиеся сердечки */
+@keyframes glow {
+    0% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 0.5; transform: scale(1); }
+}
+
+.heart-glow {
+    font-size: 50px;
+    color: #ff4d6d;
+    animation: glow 2s infinite;
+}
+
+/* Кнопка возврата */
+.btn-thanks {
+    margin-top: 20px;
+    padding: 15px 25px;
+    font-size: 20px;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(255, 118, 136, 0.4);
+}
+
+.btn-thanks:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 10px 20px rgba(255, 118, 136, 0.6);
+}
