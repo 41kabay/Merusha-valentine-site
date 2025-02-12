@@ -6,46 +6,38 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Переключатель языка -->
   <div class="lang-switch">
     <button onclick="setLanguage('en')">EN</button>
     <button onclick="setLanguage('ru')">RU</button>
   </div>
 
-  <!-- Основной контейнер -->
   <div class="container">
-    <!-- Вопрос про валентинку -->
-    <h1 id="title-question">Will you be my valentine?</h1>
+    <h1 id="title-question">Will you be my valentine? 💖</h1>
     <div class="buttons">
       <button id="yes-btn">Yes</button>
       <button id="no-btn">No</button>
     </div>
 
-    <!-- Музыка под вопросами -->
     <h2 id="music-title">And listen to this while thinking about it...</h2>
     <button id="music-btn">Play Music</button>
 
-    <!-- Ползунок для перемотки -->
     <div class="progress-control">
       <span id="current-time">0:00</span>
       <input type="range" id="progress-slider" min="0" value="0" step="1" />
       <span id="duration-time">0:00</span>
     </div>
 
-    <!-- Ползунок громкости -->
     <div class="volume-control">
       <label for="volume-slider">Volume:</label>
       <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1" />
     </div>
 
-    <!-- Сам звуковой файл -->
     <audio id="romantic-audio" preload="metadata">
       <source src="music/romantic.mp3" type="audio/mp3">
       Your browser does not support the audio element.
     </audio>
   </div>
 
-  <!-- Сердечки на фоне -->
   <div class="hearts">
     <div class="heart"></div>
     <div class="heart"></div>
@@ -55,7 +47,6 @@
     <div class="heart"></div>
   </div>
 
-  <!-- Подключаем JS -->
   <script>
     const currentPage = 'question';
   </script>
@@ -75,17 +66,18 @@
 
       let isPlaying = false;
 
-      // Кнопка "Yes" ведёт на "thanks.html"
       yesBtn.addEventListener('click', () => {
         window.location.href = 'thanks.html';
       });
 
-      // Кнопка "No" тоже ведёт на "thanks.html" (можно поменять)
-      noBtn.addEventListener('click', () => {
-        window.location.href = 'thanks.html';
+      noBtn.addEventListener('mouseover', function () {
+        let x = Math.random() * (window.innerWidth - this.offsetWidth);
+        let y = Math.random() * (window.innerHeight - this.offsetHeight);
+        this.style.position = "absolute";
+        this.style.left = `${x}px`;
+        this.style.top = `${y}px`;
       });
 
-      // Кнопка Play/Pause музыки
       musicBtn.addEventListener('click', () => {
         if (!isPlaying) {
           audio.play();
@@ -98,12 +90,10 @@
         }
       });
 
-      // Ползунок громкости
       volumeSlider.addEventListener('input', () => {
         audio.volume = volumeSlider.value;
       });
 
-      // Загружаем метаданные и обновляем ползунок длительности
       audio.addEventListener('loadedmetadata', () => {
         if (audio.duration > 0) {
           progressSlider.max = Math.floor(audio.duration);
@@ -111,18 +101,15 @@
         }
       });
 
-      // Обновляем положение ползунка во время воспроизведения
       audio.addEventListener('timeupdate', () => {
         progressSlider.value = Math.floor(audio.currentTime);
         currentTimeDisplay.textContent = formatTime(audio.currentTime);
       });
 
-      // Обновляем позицию трека при перемотке
       progressSlider.addEventListener('input', () => {
         audio.currentTime = progressSlider.value;
       });
 
-      // Функция форматирования времени (секунды -> MM:SS)
       function formatTime(seconds) {
         const min = Math.floor(seconds / 60);
         const sec = Math.floor(seconds % 60);
