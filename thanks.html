@@ -4,6 +4,67 @@
   <meta charset="UTF-8" />
   <title>Thank You</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Улучшенный стиль страницы */
+    .thank-you-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    /* Заголовок с эффектом появления */
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #title-thanks {
+      font-size: 3rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff758c, #ff7eb3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 5px rgba(255, 118, 136, 0.4);
+      opacity: 0;
+      animation: fadeInText 1.5s forwards;
+    }
+
+    /* Анимация сердечек */
+    @keyframes glow {
+      0% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+      100% { opacity: 0.5; transform: scale(1); }
+    }
+
+    .heart-glow {
+      font-size: 50px;
+      color: #ff4d6d;
+      animation: glow 2s infinite;
+      margin-bottom: 10px;
+    }
+
+    /* Улучшенная кнопка перехода */
+    .btn-thanks {
+      margin-top: 20px;
+      padding: 15px 25px;
+      font-size: 20px;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0px 5px 15px rgba(255, 118, 136, 0.4);
+    }
+
+    .btn-thanks:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 10px 20px rgba(255, 118, 136, 0.6);
+    }
+  </style>
 </head>
 <body>
   <div class="lang-switch">
@@ -11,40 +72,28 @@
     <button onclick="setLanguage('ru')">RU</button>
   </div>
 
-  <div class="container">
-    <h1 id="title-thanks">Thank you!</h1>
-    <p id="subtitle-thanks">I'm so happy you said yes!</p>
-    <button id="next-btn">Next</button>
-
-    <!-- Дополнительные ссылки -->
+  <div class="thank-you-container">
+    <h1 id="title-thanks">Thank You for Being My Valentine! 💖</h1>
+    <div class="heart-glow">❤️</div>
+    <p id="subtitle-thanks">You make my world brighter every day! ✨</p>
+    <button class="btn-thanks" id="next-btn">Next</button>
+    
+    <!-- Навигация -->
     <div class="nav-links">
-      <a href="collage.html">Collage</a>
-      <a href="letters.html">Letters</a>
+      <a href="collage.html" class="btn-thanks">Collage</a>
+      <a href="letters.html" class="btn-thanks">Letters</a>
     </div>
-  </div>
-
-  <!-- Сердечки -->
-  <div class="hearts">
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
   </div>
 
   <script>
     const currentPage = 'thanks';
-  </script>
-  <script src="js/script.js"></script>
-  <script>
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage(selectedLanguage);
-
       document.getElementById('next-btn').addEventListener('click', () => {
         window.location.href = 'thanks2.html';
       });
     });
   </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
