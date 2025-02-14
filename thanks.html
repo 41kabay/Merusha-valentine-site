@@ -46,6 +46,33 @@
       margin-bottom: 10px;
     }
 
+    /* Гифка с котиком */
+    .cat-gif {
+      margin-top: 30px;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .cat-gif img {
+      width: 250px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      transition: transform 0.5s;
+    }
+
+    .cat-gif img:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .cat-caption {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #ff4d6d;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+
     /* Улучшенная кнопка перехода */
     .btn-thanks {
       margin-top: 20px;
@@ -76,6 +103,13 @@
     <h1 id="title-thanks">Thank You for Being My Valentine! 💖</h1>
     <div class="heart-glow">❤️</div>
     <p id="subtitle-thanks">You make my world brighter every day! ✨</p>
+
+    <!-- Гифка с котиком -->
+    <div class="cat-gif">
+      <img src="https://media.tenor.com/kP5jXSZqEeUAAAAC/sharkcat-memecoin.gif" alt="Cute Cat" />
+      <p class="cat-caption">This cute kitty is happy because you said "YES"! 😻</p>
+    </div>
+
     <button class="btn-thanks" id="next-btn">Next</button>
     
     <!-- Навигация -->
