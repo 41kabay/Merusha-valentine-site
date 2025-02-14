@@ -915,3 +915,20 @@ h1 {
     display: block;
     width: 100%;
 }
+.cat-gif {
+  margin-top: 30px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.cat-gif img {
+  width: 250px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.5s;
+}
+
+.cat-gif img:hover {
+  transform: scale(1.1) rotate(5deg);
+}
