@@ -56,3 +56,65 @@
   <script src="js/script.js"></script>
 </body>
 </html>
+/* Удаляем непроявленное изображение */
+.journal-section img {
+  display: none;
+}
+
+/* Анимация плавающих рыб */
+@keyframes swim {
+  0% { transform: translateX(-100px) translateY(0) rotate(0deg); }
+  50% { transform: translateX(100vw) translateY(20px) rotate(15deg); }
+  100% { transform: translateX(-100px) translateY(0) rotate(0deg); }
+}
+
+.fish {
+  position: fixed;
+  bottom: 100px;
+  left: -100px;
+  width: 60px;
+  height: 30px;
+  background: url('images/fish.png') no-repeat center/contain;
+  animation: swim 10s linear infinite;
+  z-index: 2;
+}
+
+.fish:nth-child(2) {
+  bottom: 200px;
+  animation-delay: 5s;
+}
+
+/* Вращающиеся знаки зодиака */
+@keyframes rotateZodiac {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.zodiac-symbol {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  font-size: 3rem;
+  animation: rotateZodiac 6s linear infinite;
+}
+
+.zodiac-symbol:nth-child(2) {
+  top: 100px;
+  right: 100px;
+  animation-duration: 8s;
+}
+
+.zodiac-symbol:nth-child(3) {
+  top: 150px;
+  right: 150px;
+  animation-duration: 10s;
+}
+
+/* Добавляем знаки зодиака */
+<div class="zodiac-symbol">♏️</div>
+<div class="zodiac-symbol">♓️</div>
+<div class="zodiac-symbol">🌊</div>
+
+<!-- Добавляем рыбок -->
+<div class="fish"></div>
+<div class="fish"></div>
