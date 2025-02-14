@@ -319,3 +319,14 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById("flip-btn").addEventListener("click", function () {
     document.querySelector(".book").classList.toggle("flipped");
 });
+document.getElementById('yes-btn').addEventListener('click', () => {
+    // Создаем вспышку
+    const flash = document.createElement('div');
+    flash.classList.add('flash-effect');
+    document.body.appendChild(flash);
+
+    // Переход на страницу после вспышки
+    setTimeout(() => {
+        window.location.href = 'thanks.html';
+    }, 500);
+});
