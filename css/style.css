@@ -974,3 +974,14 @@ h1 {
     transform: scale(1.1) rotate(3deg);
     box-shadow: 0px 0px 20px rgba(255, 118, 136, 0.6);
 }
+/* Исправляем контейнер для полноэкранного отображения */
+.container {
+    height: 100vh; /* На весь экран */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 40px;
+}
