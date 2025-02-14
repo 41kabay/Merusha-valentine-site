@@ -119,30 +119,3 @@
   </script>
 </body>
 </html>
-<script>
-document.getElementById('yes-btn').addEventListener('click', () => {
-    for(let i = 0; i < 30; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'flying-heart';
-        heart.style.left = Math.random() * window.innerWidth + 'px';
-        heart.style.top = Math.random() * window.innerHeight + 'px';
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 3000);
-    }
-    window.location.href = 'thanks.html';
-});
-</script>
-
-<style>
-.flying-heart {
-    position: absolute;
-    color: red;
-    font-size: 2rem;
-    animation: flyUp 3s ease-out;
-}
-
-@keyframes flyUp {
-    0% { transform: translateY(0) rotate(0); }
-    100% { transform: translateY(-100vh) rotate(720deg); }
-}
-</style>
