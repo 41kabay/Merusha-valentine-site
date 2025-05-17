@@ -2,51 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>K-Drama Playlist for Merusha</title>
+  <title>Playlist for Merusha</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
     body {
       background: linear-gradient(135deg, #ffe0f0, #fce1ff);
       font-family: "Poppins", sans-serif;
       color: #333;
-      text-align: center;
       padding: 40px;
+      margin: 0;
     }
 
     h1 {
       font-size: 2.5rem;
       color: #d12053;
-      margin-bottom: 20px;
+      text-align: center;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 4px rgba(255, 118, 136, 0.4);
     }
 
-    .playlist {
+    .playlist-scroll {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 25px;
+      overflow-x: auto;
+      gap: 30px;
+      padding: 20px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .playlist-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .playlist-scroll::-webkit-scrollbar-thumb {
+      background: #ff7eb3;
+      border-radius: 10px;
     }
 
     .track {
+      flex: 0 0 300px;
       background: #fff0fb;
-      border-radius: 15px;
+      border-radius: 20px;
       padding: 20px;
-      width: 80%;
-      max-width: 500px;
-      box-shadow: 0 8px 20px rgba(255, 118, 136, 0.2);
+      scroll-snap-align: center;
+      box-shadow: 0 10px 25px rgba(255, 118, 136, 0.3);
     }
 
     .track-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: bold;
       margin-bottom: 10px;
+      color: #b11746;
     }
 
     audio {
       width: 100%;
+      border-radius: 10px;
     }
 
     .nav-links {
       margin-top: 40px;
+      text-align: center;
     }
 
     .nav-links a {
@@ -70,7 +85,7 @@
 <body>
   <h1>💜 Плейлист для Меруши</h1>
 
-  <div class="playlist">
+  <div class="playlist-scroll">
     <div class="track">
       <div class="track-title">Everytime — Chen & Punch</div>
       <audio controls src="music/everytime.mp3"></audio>
@@ -83,7 +98,7 @@
       <div class="track-title">My Destiny — Lyn</div>
       <audio controls src="music/mydestiny.mp3"></audio>
     </div>
-    <!-- Добавь остальные треки аналогично -->
+    <!-- Добавь ещё треки по аналогии -->
   </div>
 
   <div class="nav-links">
