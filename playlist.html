@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>K-Drama Playlist for Merusha</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe0f0, #fce1ff);
+      font-family: "Poppins", sans-serif;
+      color: #333;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #d12053;
+      margin-bottom: 20px;
+    }
+
+    .playlist {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .track {
+      background: #fff0fb;
+      border-radius: 15px;
+      padding: 20px;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 8px 20px rgba(255, 118, 136, 0.2);
+    }
+
+    .track-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    .nav-links {
+      margin-top: 40px;
+    }
+
+    .nav-links a {
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 10px;
+      display: inline-block;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(255, 118, 136, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <h1>💜 Плейлист для Меруши</h1>
+
+  <div class="playlist">
+    <div class="track">
+      <div class="track-title">Everytime — Chen & Punch</div>
+      <audio controls src="music/everytime.mp3"></audio>
+    </div>
+    <div class="track">
+      <div class="track-title">For You — EXO-CBX</div>
+      <audio controls src="music/foryou.mp3"></audio>
+    </div>
+    <div class="track">
+      <div class="track-title">My Destiny — Lyn</div>
+      <audio controls src="music/mydestiny.mp3"></audio>
+    </div>
+    <!-- Добавь остальные треки аналогично -->
+  </div>
+
+  <div class="nav-links">
+    <a href="index.html">На главную</a>
+    <a href="journal.html">Журнал</a>
+    <a href="letters.html">Письма</a>
+  </div>
+</body>
+</html>
