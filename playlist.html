@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Playlist for Merusha</title>
+  <title>K-Drama Playlist for Merusha</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
     body {
-      background: linear-gradient(135deg, #ffe0f0, #fce1ff);
+      background: url('images/vinyl-bg.png') no-repeat center center fixed;
+      background-size: cover;
       font-family: "Poppins", sans-serif;
       color: #333;
-      padding: 40px;
       margin: 0;
+      padding: 40px 20px;
       text-align: center;
       overflow-x: hidden;
     }
@@ -19,56 +20,107 @@
       font-size: 3rem;
       color: #d12053;
       margin-bottom: 40px;
-      text-shadow: 2px 2px 6px rgba(255, 118, 136, 0.3);
+      text-shadow: 2px 2px 8px rgba(255, 118, 136, 0.3);
     }
 
     .playlist {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 40px;
+      gap: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .track {
       background: #fff0fb;
-      border-radius: 20px;
-      padding: 30px;
-      width: 90%;
-      max-width: 800px;
-      box-shadow: 0 10px 25px rgba(255, 118, 136, 0.3);
-      transition: transform 0.3s ease-in-out;
+      border-radius: 30px;
+      padding: 30px 40px;
+      width: 100%;
+      max-width: 900px;
+      box-shadow: 0 12px 30px rgba(255, 118, 136, 0.3);
       position: relative;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
 
-    .track:hover {
-      transform: scale(1.02);
+    .track-cover {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    .track-info {
+      flex-grow: 1;
+      text-align: left;
     }
 
     .track-title {
       font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 12px;
+      font-weight: bold;
+      margin-bottom: 10px;
       color: #b11746;
     }
 
-    .heart-visual {
-      position: absolute;
-      right: 20px;
-      bottom: 20px;
-      font-size: 24px;
-      color: #ff4d6d;
-      transform: scale(1);
-      transition: transform 0.1s ease-in-out;
-    }
-
-    audio {
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 15px;
       width: 100%;
-      height: 50px;
+      margin-top: 10px;
     }
 
-    audio::-webkit-media-controls-panel {
-      background-color: #ffe0f0;
-      border-radius: 10px;
+    .progress-bar, .volume-bar {
+      flex-grow: 1;
+      height: 10px;
+      background: #ffd9ec;
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .progress-fill, .volume-fill {
+      height: 100%;
+      background: #ff4d6d;
+      width: 0%;
+    }
+
+    .play-btn {
+      font-size: 24px;
+      background: #ff7eb3;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255, 118, 136, 0.4);
+    }
+
+    .visualizer {
+      display: flex;
+      gap: 4px;
+      margin-top: 10px;
+      height: 20px;
+      align-items: flex-end;
+    }
+
+    .bar {
+      width: 4px;
+      height: 5px;
+      background: #ff4d6d;
+      border-radius: 2px;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { height: 5px; }
+      to { height: 20px; }
     }
 
     .nav-links {
@@ -76,21 +128,22 @@
     }
 
     .nav-links a {
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      background: linear-gradient(135deg, #ff758c, #ffb6c1);
       color: white;
-      padding: 16px 30px;
-      border-radius: 30px;
+      padding: 16px 32px;
+      border-radius: 40px;
       font-size: 18px;
       font-weight: bold;
       text-decoration: none;
       margin: 12px;
       display: inline-block;
-      transition: all 0.3s ease-in-out;
+      box-shadow: 0 8px 18px rgba(255, 118, 136, 0.3);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s;
     }
 
     .nav-links a:hover {
-      transform: scale(1.1);
-      box-shadow: 0 12px 24px rgba(255, 118, 136, 0.5);
+      transform: scale(1.08);
+      box-shadow: 0 12px 30px rgba(255, 118, 136, 0.5);
     }
   </style>
 </head>
@@ -99,20 +152,21 @@
 
   <div class="playlist">
     <div class="track">
-      <div class="track-title">Everytime — Chen & Punch</div>
-      <audio controls src="music/everytime.mp3"></audio>
-      <div class="heart-visual">❤️</div>
+      <img src="images/cover1.jpg" alt="Cover" class="track-cover">
+      <div class="track-info">
+        <div class="track-title">Everytime — Chen & Punch</div>
+        <button class="play-btn">▶</button>
+        <div class="controls">
+          <div class="progress-bar"><div class="progress-fill"></div></div>
+          <div class="volume-bar"><div class="volume-fill"></div></div>
+        </div>
+        <div class="visualizer">
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          <div class="bar"></div><div class="bar"></div>
+        </div>
+      </div>
     </div>
-    <div class="track">
-      <div class="track-title">For You — EXO-CBX</div>
-      <audio controls src="music/foryou.mp3"></audio>
-      <div class="heart-visual">❤️</div>
-    </div>
-    <div class="track">
-      <div class="track-title">My Destiny — Lyn</div>
-      <audio controls src="music/mydestiny.mp3"></audio>
-      <div class="heart-visual">❤️</div>
-    </div>
+    <!-- Повтори блок .track с разными src и обложками -->
   </div>
 
   <div class="nav-links">
@@ -123,32 +177,39 @@
 
   <script>
     document.querySelectorAll('.track').forEach(track => {
-      const audio = track.querySelector('audio');
-      const heart = track.querySelector('.heart-visual');
+      const playBtn = track.querySelector('.play-btn');
+      const progressFill = track.querySelector('.progress-fill');
+      const volumeFill = track.querySelector('.volume-fill');
+      const bars = track.querySelectorAll('.bar');
+      let audio = new Audio('music/everytime.mp3'); // заменить под конкретный трек
+      let playing = false;
 
-      try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const source = ctx.createMediaElementSource(audio);
-        const analyser = ctx.createAnalyser();
-        analyser.fftSize = 256;
-        const bufferLength = analyser.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);
-
-        source.connect(analyser);
-        analyser.connect(ctx.destination);
-
-        function animate() {
-          requestAnimationFrame(animate);
-          analyser.getByteFrequencyData(dataArray);
-          let volume = dataArray.reduce((a, b) => a + b) / bufferLength;
-          let scale = 1 + volume / 100;
-          heart.style.transform = `scale(${scale})`;
+      playBtn.addEventListener('click', () => {
+        if (!playing) {
+          audio.play();
+          playBtn.textContent = '⏸';
+          playing = true;
+        } else {
+          audio.pause();
+          playBtn.textContent = '▶';
+          playing = false;
         }
+      });
 
-        audio.onplay = () => ctx.resume().then(animate);
-      } catch (e) {
-        console.warn('AudioContext not supported:', e);
-      }
+      audio.addEventListener('timeupdate', () => {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progressFill.style.width = percent + '%';
+      });
+
+      audio.volume = 0.5;
+      volumeFill.style.width = '50%';
+
+      // Имитируем визуализацию (фейковая для красоты)
+      setInterval(() => {
+        bars.forEach(bar => {
+          bar.style.height = Math.random() * 20 + 5 + 'px';
+        });
+      }, 200);
     });
   </script>
 </body>
